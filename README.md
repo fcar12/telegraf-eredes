@@ -14,6 +14,17 @@ Input plugin to collect metrics (power consumption) from E-Redes.
 ### Sample Configuration:
 
 ```toml
+[agent]
+  omit_hostname = true
+  logfile = "telegraf.log"
+
+[[outputs.influxdb]]
+  urls = ["http://localhost:8086"]
+  skip_database_creation = true
+  database = "eredes"
+  username = "eredes"
+  password = "eredes"
+  
 [[inputs.redes]]
   ## E-Redes Auth Credentials
   # username = "username"
