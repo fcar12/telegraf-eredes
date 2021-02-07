@@ -43,12 +43,13 @@ Input plugin to collect metrics (power consumption) from E-Redes.
   # Minimum is 24h
   # Ex: 24h = last 24h = yesterday 00:00 to 23:59
   # E-Redes doesn't provide realtime (current day) readings at the time
-  history_interval = "168h" # 1 week
+  history_interval = "168h" # 1 week, to avoid data loss
 
   # If start date is defined, history_interval is ignored
   # start_date = "2020-12-31 23:59:59"
 
-  interval = "12h"
+  # API is not avalailable sometimes, so read more than once a day
+  interval = "4h"
   
   # Parser configuration, configured for current state of E-Redes endpoints
   data_format = "json"
