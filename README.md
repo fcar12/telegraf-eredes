@@ -26,32 +26,34 @@ Input plugin to collect metrics (power consumption) from E-Redes.
   password = "eredes"
   
 [[inputs.redes]]
-  ## E-Redes Auth Credentials
-  # username = "username"
-  # password = "password"
-  # cpe = "cpe"
+  ## E-Redes Auth Credentials (required)
+  username = "username"
+  password = "password"
+  cpe = "cpe"
 
-  # E-Redes sign in and consumptions URLs (default is the configured below)
+  # E-Redes sign in and consumptions URLs. Default is the configured below.
+  # Optional
   # sign_in_url = "https://online.e-redes.pt/listeners/api.php/ms/auth/auth/signin"
   # usage_url = "https://online.e-redes.pt/listeners/api.php/ms/reading/data-usage/sysgrid/get"
+  # If running into SSL issues, uncomment this (optional, default false)
   # insecure_skip_verify = true
 
   ## Amount of time allowed to complete the HTTP request (default is 60s)
   # timeout = "60s"
 
-  # Interval to request until start of current day
+  # Interval to request until start of current day (optional, default is 24h)
   # Minimum is 24h
   # Ex: 24h = last 24h = yesterday 00:00 to 23:59
   # E-Redes doesn't provide realtime (current day) readings at the time
   history_interval = "168h" # 1 week, to avoid data loss
 
-  # If start date is defined, history_interval is ignored
+  # If start date is defined, history_interval is ignored (optional)
   # start_date = "2020-12-31 23:59:59"
 
-  # API is not avalailable sometimes, so read more than once a day
+  # API is not avalailable sometimes, so read more than once a day (required)
   interval = "4h"
   
-  # Parser configuration, configured for current state of E-Redes endpoints
+  # Parser configuration, configured for current state of E-Redes endpoints (required)
   data_format = "json"
   json_query = "Body.Result.utilitiesDevices.0.meterLoadCurves.0.loadCurves"
   json_name_key = "edp_dist"
