@@ -6,7 +6,7 @@ Input plugin to collect metrics (power consumption) from E-Redes.
 
 1. Download telegraf from [repository](https://github.com/influxdata/telegraf). 
 2. Copy `eredes` to `plugins/inputs` directory.
-3. All eredes entry to `plugins/inputs/all/all.go` (follow the format used in other plugins listed).
+3. Add eredes entry to `plugins/inputs/all/all.go` (follow the format used in other plugins listed).
 4. Compile telegraf. Follow instructions from telegraf repository, but in short just run `make`. If compiling for linux (ex: docker), set arch before make with `export GOOS=linux`; for mac `export GOOS=darwin`.
 
 **Note**: if running into issues with ssl certificates, set `insecure_skip_verify = true` in configuration.
