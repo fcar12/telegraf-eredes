@@ -1,3 +1,7 @@
+# -- Update --
+E-Redes added recaptacha to the website, so this no longer works.
+#
+
 # telegraf-eredes
 
 Input plugin to collect metrics (power consumption) from E-Redes.
